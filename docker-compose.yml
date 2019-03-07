@@ -4,6 +4,7 @@ services:
   master:
     build: master
     image: salt-master-debug:50313
+    container_name: salt-50313-master
     ports:
       - "4505:4505"
       - "4506:4506"
