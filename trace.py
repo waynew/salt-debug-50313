@@ -24,6 +24,7 @@ var chart = new Chart(ctx, {{
       datasets: {datasets},
   }},
   options: {{
+    animation: false,
     scales: {{
       xAxes: [{{
         type: 'time',
@@ -71,6 +72,8 @@ def parsemem(vals):
     elif vals.endswith('GiB'):
         factor = 1000
         amount = float(vals[:-3])*factor
+    elif vals == '0B':
+        amount = 0
     else:
         print('Unknown', vals[-4:])
         amount = 0
