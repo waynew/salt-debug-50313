@@ -8,12 +8,17 @@ services:
     ports:
       - "4505:4505"
       - "4506:4506"
+    links:
+      - repo:repo
   minion:
     build: minion
     image: salt-minion-debug:50313
     links:
       - master:salt
+      - repo:repo
     entrypoint:
       - salt-minion
       - --log-level
       - debug
+  repo:
+    build: repo

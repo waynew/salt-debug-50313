@@ -40,7 +40,8 @@ var chart = new Chart(ctx, {{
 
 
 def hexlify(name):
-    num = int(re.sub('[^a-zA-Z0-9]', '', name), 36)
+    name = re.sub('[^a-zA-Z0-9]', '', name)
+    num = int(name, 36)
     return '#'+hex(num)[2:8].zfill(6)
 
 
